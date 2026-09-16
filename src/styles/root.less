@@ -1,0 +1,449 @@
+/*-- -------------------------- -->
+<---         CSS Reset          -->
+<--- -------------------------- -*/
+
+/* Modern CSS Reset - Based on Josh Comeau's reset */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+	margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	/* 4. Add accessible line-height */
+	line-height: 1.5;
+	/* 5. Improve text rendering */
+	-webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+	text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+	isolation: isolate;
+}
+
+/*-- -------------------------- -->
+<---       CSS Variables        -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0em) {
+	:root {
+		/* Colors */
+		--primary: #d4b803; /* Cor principal da marca, usada em destaques */
+		--primaryLight: #ffba43; /* Versao clara da cor principal */
+		--primaryDark: #d98f00; /* Versao escura da cor principal */
+
+		--secondary: #ffba43; /* Cor secundaria, boa para botoes e secoes escuras */
+		--secondaryLight: #ffba43; /* Versao clara da cor secundaria */
+		--secondaryDark: #213927; /* Versao escura da cor secundaria */
+
+		--accent: #f4a60b; /* Cor de apoio para detalhes e chamadas visuais */
+		--accentLight: #ffd36a; /* Versao clara da cor de apoio */
+		--accentDark: #b87800; /* Versao escura da cor de apoio */
+
+		/* Backgrounds */
+		--background: #ffffff; /* Fundo principal das paginas */
+		--backgroundAlt: #f6f6f4; /* Fundo alternativo para separar secoes claras */
+		--backgroundDark: #2f4f35; /* Fundo para secoes escuras */
+
+		--surfaceColor: #ffffff; /* Superficie clara de cards, menus e blocos */
+		--surfaceAltColor: #f3f3f1; /* Superficie levemente cinza */
+		--surfaceDarkColor: #3d6042; /* Superficie para cards dentro de fundo escuro */
+
+		/* Text */
+		--headerColor: #1a1a1a; /* Cor dos titulos principais */
+		--bodyTextColor: #4e4b66; /* Cor do texto comum */
+		--mutedTextColor: #8a8a8d; /* Texto secundario, menos importante */
+		--bodyTextColorWhite: #fafbfc; /* Texto claro para fundos escuros */
+
+		/* Typography */
+		--font-primary: "Manrope", "Inter", Arial, sans-serif; /* Fonte geral do site */
+		--font-heading: "Plus Jakarta Sans", "Manrope", Arial, sans-serif; /* Fonte dos titulos */
+
+		--topperFontSize: clamp(0.875rem, 1.2vw, 1rem); /* Texto pequeno acima dos titulos */
+		--headerFontSize: clamp(2rem, 4vw, 4rem); /* Tamanho padrao de titulos grandes */
+		--bodyFontSize: 1rem; /* Tamanho do paragrafo */
+		--smallFontSize: 0.875rem; /* Tamanho de labels, badges e textos pequenos */
+
+		--lineHeightHeading: 1.1; /* Altura de linha dos titulos */
+		--lineHeightBody: 1.55; /* Altura de linha do texto comum */
+
+		/* Layout */
+		--containerWidth: 78rem; /* Largura maxima do conteudo */
+		--containerPadding: 1rem; /* Respiro lateral no mobile */
+		--sectionPadding: clamp(4rem, 8vw, 7.5rem) 1rem; /* Padding vertical das secoes */
+		--sectionGap: clamp(2rem, 5vw, 4rem); /* Espaco entre blocos dentro de secoes */
+
+		/* Spacing */
+		--space-xs: 0.5rem; /* Espaco muito pequeno */
+		--space-sm: 0.75rem; /* Espaco pequeno */
+		--space-md: 1rem; /* Espaco base */
+		--space-lg: 1.5rem; /* Espaco medio */
+		--space-xl: 2rem; /* Espaco grande */
+		--space-2xl: 3rem; /* Espaco muito grande */
+		--space-3xl: 4.5rem; /* Espaco extra grande */
+
+		/* Radius */
+		--radius-xs: 0.25rem; /* Arredondamento minimo */
+		--radius-sm: 0.5rem; /* Arredondamento leve */
+		--radius-md: 0.875rem; /* Arredondamento padrao de cards simples */
+		--radius-lg: 1.25rem; /* Arredondamento grande */
+		--radius-xl: 2rem; /* Arredondamento bem marcado */
+		--radius-pill: 999px; /* Formato de pilula */
+
+		--buttonRadius: var(--radius-pill); /* Radius padrao dos botoes */
+		--cardRadius: var(--radius-md); /* Radius padrao dos cards */
+		--inputRadius: var(--radius-md); /* Radius padrao de inputs */
+		--imageRadius: var(--radius-sm); /* Radius padrao de imagens retangulares */
+		--avatarRadius: var(--radius-pill); /* Radius de avatares circulares */
+		--badgeRadius: var(--radius-pill); /* Radius de badges e tags */
+
+		/* Borders */
+		--borderColor: rgba(37, 37, 41, 0.12); /* Borda sutil em fundo claro */
+		--borderColorLight: rgba(255, 255, 255, 0.16); /* Borda sutil em fundo escuro */
+		--border-subtle: 1px solid var(--borderColor); /* Borda padrao leve */
+		--border-strong: 1px solid rgba(37, 37, 41, 0.22); /* Borda com mais contraste */
+
+		/* Shadows */
+		--shadow-xs: 0 2px 8px rgba(37, 37, 41, 0.05); /* Sombra quase imperceptivel */
+		--shadow-soft: 0 10px 28px rgba(37, 37, 41, 0.08); /* Sombra padrao elegante */
+		--shadow-medium: 0 18px 45px rgba(37, 37, 41, 0.12); /* Sombra para elementos em destaque */
+		--shadow-strong: 0 28px 70px rgba(37, 37, 41, 0.18); /* Sombra forte para modais/heros */
+
+		--cardShadow: var(--shadow-soft); /* Sombra padrao dos cards */
+		--buttonShadow: none; /* Sombra padrao dos botoes */
+
+		/* Cards */
+		--cardBackground: var(--surfaceAltColor); /* Fundo padrao dos cards claros */
+		--cardBackgroundAlt: var(--surfaceColor); /* Fundo alternativo de card branco */
+		--cardBackgroundDark: var(--surfaceDarkColor); /* Fundo de card em secao escura */
+		--cardTextDark: var(--bodyTextColorWhite); /* Texto principal em card escuro */
+		--cardMutedTextDark: rgba(248, 248, 244, 0.72); /* Texto secundario em card escuro */
+		--cardPadding: clamp(1.5rem, 3vw, 2.5rem); /* Respiro interno dos cards */
+		--cardBorder: var(--border-subtle); /* Borda padrao dos cards */
+
+		/* Buttons */
+		--buttonHeight: 3.25rem; /* Altura padrao dos botoes */
+		--buttonPadding: 0 1.75rem; /* Padding horizontal dos botoes */
+
+		--buttonPrimaryBg: var(--secondary); /* Fundo do botao principal */
+		--buttonPrimaryText: #ffffff; /* Texto do botao principal */
+		--buttonPrimaryHoverBg: var(--primary); /* Fundo do botao principal no hover */
+		--buttonPrimaryHoverText: #252529; /* Texto do botao principal no hover */
+
+		--buttonSecondaryBg: transparent; /* Fundo do botao secundario */
+		--buttonSecondaryText: var(--headerColor); /* Texto do botao secundario */
+		--buttonSecondaryBorder: 2px solid var(--headerColor); /* Borda do botao secundario */
+		--buttonSecondaryHoverBg: var(--headerColor); /* Fundo do botao secundario no hover */
+		--buttonSecondaryHoverText: #ffffff; /* Texto do botao secundario no hover */
+
+		--buttonIconBg: #ffffff; /* Fundo do circulo/icone dentro do botao */
+		--buttonIconColor: var(--secondary); /* Cor do icone dentro do botao */
+		--buttonIconSize: 2.5rem; /* Tamanho do circulo/icone do botao */
+
+		/* Badges */
+		--badgeBg: var(--primary); /* Fundo de badges, tags e categorias */
+		--badgeText: #252529; /* Texto de badges */
+		--badgeBorder: none; /* Borda de badges */
+		--badgePadding: 0.4rem 0.875rem; /* Padding interno de badges */
+
+		/* Icons */
+		--iconColor: var(--secondary); /* Cor padrao dos icones */
+		--iconColorMuted: var(--mutedTextColor); /* Cor de icones secundarios */
+		--iconSize: 1.25rem; /* Tamanho padrao dos icones */
+		--iconBoxSize: 3.25rem; /* Tamanho de caixas circulares com icone */
+		--iconBoxRadius: var(--radius-pill); /* Radius das caixas de icone */
+		--iconBoxBg: var(--primary); /* Fundo das caixas de icone */
+
+		/* Images */
+		--imageRadius: var(--radius-sm); /* Arredondamento de imagens */
+		--imageShadow: none; /* Sombra padrao de imagens */
+		--imageOverlay: rgba(47, 79, 53, 0.35); /* Overlay para imagens com texto por cima */
+
+		/* Forms */
+		--inputBackground: #f4f4f3; /* Fundo de inputs, selects e textareas */
+		--inputBorder: 1px solid rgba(37, 37, 41, 0.1); /* Borda dos campos */
+		--inputText: var(--bodyTextColor); /* Texto digitado nos campos */
+		--inputPlaceholder: #a1a1a3; /* Texto placeholder dos campos */
+		--inputPadding: 1rem 1.25rem; /* Padding interno dos campos */
+
+		/* Hover / Motion */
+		--hoverOpacity: 0.9; /* Opacidade padrao no hover */
+		--hoverTranslate: -0.125rem; /* Movimento vertical sutil no hover */
+		--transitionFast: 0.15s ease; /* Transicao rapida */
+		--transitionBase: 0.3s ease; /* Transicao padrao */
+		--transitionSlow: 0.5s ease; /* Transicao lenta */
+
+		/* Responsive */
+		--mobileSectionPadding: 3.75rem 1rem; /* Padding de secoes no mobile */
+		--desktopSectionPadding: clamp(5rem, 8vw, 7.5rem) 1rem; /* Padding de secoes no desktop */
+
+		/* Decorative / Differentials */
+		--dividerColor: var(--borderColor); /* Cor de linhas divisorias */
+		--highlightBg: rgba(255, 179, 26, 0.16); /* Fundo de destaques suaves */
+		--highlightText: var(--primary); /* Texto destacado */
+	}
+}
+
+/*-- -------------------------- -->
+<---     Base Element Styles    -->
+<--- -------------------------- -*/
+
+body,
+html {
+	font-family: var(--font-primary);
+	font-size: 100%;
+	color: var(--bodyTextColor);
+}
+
+body {
+	transition: background-color 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--headerColor);
+}
+
+p,
+li,
+a {
+	font-size: (16/16rem);
+	line-height: 1.5em;
+}
+
+p,
+li {
+	color: var(--bodyTextColor);
+}
+
+a,
+button {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+/*-- -------------------------- -->
+<---   Typography Helpers       -->
+<--- -------------------------- -*/
+
+// Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
+.cs-topper {
+	font-size: var(--topperFontSize);
+	font-weight: 700;
+	line-height: 1.2em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--secondary);
+	display: block;
+}
+
+.cs-title {
+	font-size: var(--headerFontSize);
+	font-weight: 900;
+	line-height: 1.2em;
+	margin: 0 auto (16/16rem);
+	color: var(--headerColor);
+	position: relative;
+}
+
+.cs-text {
+	font-size: var(--bodyFontSize);
+	line-height: 1.5em;
+	width: 100%;
+	margin: 0 auto;
+	color: var(--bodyTextColor);
+}
+
+/*-- -------------------------- -->
+<---    Component Classes       -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0em) {
+	// Button - can be replaced using CodeStitch's "Button" Stitches
+	.cs-button-solid {
+		font-size: (16/16rem);
+		font-weight: bold;
+		line-height: (50/16em);
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+		width: auto;
+		height: (50/16rem);
+		padding: 0 (30/16rem);
+
+		// Transition Properties
+		color: #000;
+		background-color: var(--primary);
+		display: inline-block;
+		position: relative;
+		z-index: 1;
+		transition: color 0.3s;
+		transition-delay: 0.1s;
+
+		&:hover {
+			color: #fff;
+			&:before {
+				width: 100%;
+			}
+		}
+
+		&:before {
+			content: "";
+
+			//Transition properties
+			width: 0;
+			height: 100%;
+			background-color: #000;
+			opacity: 1;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			transition: width 0.3s;
+		}
+	}
+
+	.container {
+		width: 92%;
+		margin: auto;
+		position: relative;
+	}
+
+	// Skip to main content link - accessible to keyboard users and screen readers
+	.skip {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translateY(-100%);
+		z-index: 10001; // Above header (10000)
+		opacity: 0;
+		overflow: hidden;
+		transition:
+			transform 0.3s,
+			opacity 0.3s;
+
+		&:focus {
+			transform: translateY(0);
+			opacity: 1;
+			padding: 1rem 1.5rem;
+			background-color: var(--primary);
+			color: var(--headerColor);
+			text-decoration: none;
+			font-weight: 700;
+			outline: 2px solid var(--primary);
+			outline-offset: 2px;
+		}
+	}
+}
+
+/*-- -------------------------- -->
+<---      Utility Classes       -->
+<--- -------------------------- -*/
+
+// prevents icons from shrinking in flex containers
+[data-icon] {
+	flex-shrink: 0;
+}
+
+.cs-hide-on-mobile {
+	display: none;
+}
+
+.cs-hide-on-desktop {
+	display: block;
+}
+
+/*-- -------------------------- -->
+<---   Responsive Adjustments   -->
+<--- -------------------------- -*/
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+	.cs-hide-on-mobile {
+		display: block;
+	}
+
+	.cs-hide-on-desktop {
+		display: none;
+	}
+}
+
+/* Scale full website with the viewport width */
+@media only screen and (min-width: 2000px) {
+	body,
+	html {
+		font-size: 0.85vw;
+	}
+}
+
+
+
+
+
+
+
+
